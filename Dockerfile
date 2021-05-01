@@ -8,8 +8,7 @@ RUN apt-get install -y \
 	zip \
 	unzip
 
-RUN docker-php-ext-configure zip && \
-    docker-php-ext-install zip
+RUN docker-php-ext-install zip
 
 WORKDIR /var/www/html
 
