@@ -2,7 +2,14 @@ FROM php:7.4-apache
 
 RUN apt update && apt upgrade -qy
 
-RUN apt install unzip
+# compressions utilities
+RUN apt-get install -y \
+	libzip-dev \
+	zip \
+	unzip
+
+RUN docker-php-ext-configure zip && \
+    docker-php-ext-install zip
 
 WORKDIR /var/www/html
 
